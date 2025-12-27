@@ -8,8 +8,8 @@ export const siteConfig = {
   socials: {
     email: "r.m.vanveluw@gmail.com",
     github: "https://github.com/TPODanzig",
-    linkedin: "https://linkedin.com/",
-    itch: "https://itch.io/dashboard",
+    linkedin: "https://www.linkedin.com/in/robin-van-veluw-8834733a1/",
+    itch: "https://tpo-danzig.itch.io/",
   },
 
   aboutLong: `

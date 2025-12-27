@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Eagle+Lake&display=swap');
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
-  --surface: #0f0f0f;
-  --text: #f5f5f5;
-  --muted: #a3a3a3;
-  --accent: #fb923c;
-  --accent-hover: #ea580c;
+  --bg: #516356;
+  --surface: #032b05;
+  --text: #d8fbd9;
+  --muted: #a3afa0;
+  --accent: #eb1519;
+  --accent-hover: #b90f12;
   --accent-text: #000000;
-  --bordercolor: #2b2b2b;
+  --bordercolor: #20650b;
 
   --overlay: rgba(0, 0, 0, 0.6);
   --overlay-hover: rgba(0, 0, 0, 0.8);
@@ -18,11 +18,12 @@
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 30px rgba(251, 146, 60, 0.1);
+  --shadow-sm: 0 4px 12px rgba(11,15,25,0.06);
+  --shadow-md: 0 12px 30px rgba(11,15,25,0.12);
+  --shadow-lg: 0 30px 80px rgba(11,15,25,0.18);
   
-  --font-main: "Roboto", sans-serif; 
+  --font-main: "Eagle Lake", serif;
+  --font-heading: "Cinzel", serif;
 }
 
 body {
@@ -43,7 +44,7 @@ body {
   padding: 0.375rem 0.75rem;
   background: rgba(251, 146, 60, 0.1);
   color: var(--accent);
-  border: 1px solid rgba(251, 146, 60, 0.2);
+  border: 2px solid rgba(251, 146, 60, 0.2);
   border-radius: 999px;
   font-weight: 500;
 }
