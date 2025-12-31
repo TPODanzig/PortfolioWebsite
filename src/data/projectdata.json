@@ -176,7 +176,7 @@
       "id": "avian-attributes",
       "title": "Avian Attributes",
       "tagline": "Een vogel spot spel voor musea",
-      "description": "",
+      "description": "Voor deze opdracht moest ik in een team werken aan een spel voor een museum, hiervoor moesten we ook gebruik maken van een touchscreen system. \nMijn team bestond uit 5 artists en 3 developers, en hoewel de artists goed controle namen over het project, heb ik alles op het developer deel geregeld and was ik helaas bij verre de meest productieve developer. \nIn het spel moet je gebruik maken van hints om een vogel te vinden die niet bij de rest hoort, en deze kan je dan selecteren met je touchscreen. Vind ze allemaal, in alle locaties, en je wint!",
       "thumbnail": "./Thumbnail6.png",
       "screenshots": [],
       "tags": [
@@ -186,43 +186,82 @@
       ],
       "projectRole": "Developer team lead",
       "timeline": "5 weken",
-      "mechanics": [],
-      "git": "",
-      "itch": ""
+      "mechanics": [
+        {
+          "subtitle": "Selection Zone / Touchscreen controls",
+          "description": "De speler kan met 2 vingers het scherm aanraken om de vogels te selecteren. tussen je 2 vingers word een doos gemaakt, en de geselecteerde vogel word opgehaald als je loslaat",
+          "image": "./Feature6.1.png",
+          "code": "void calculateBoxSize() {\n        //Pak de hoekjes\n        boxMinX = Mathf.Min(Parent.TouchLocation1.x, Parent.TouchLocation2.x);\n        boxMaxX = Mathf.Max(Parent.TouchLocation1.x, Parent.TouchLocation2.x);\n        boxMinY = Mathf.Min(Parent.TouchLocation1.y, Parent.TouchLocation2.y);\n        boxMaxY = Mathf.Max(Parent.TouchLocation1.y, Parent.TouchLocation2.y);\n\n        //Zet de doos perportions\n        boxWidth = boxMaxX - boxMinX;\n        boxHeight = boxMaxY - boxMinY;\n        boxCenter = new Vector2(boxMinX + boxWidth / 2f, boxMinY + boxHeight / 2f);\n\n        //Laat de doos grooven en beweegbaar zijn\n        RectTransform rt = activeDrawBox.GetComponent<RectTransform>();\n        rt.sizeDelta = new Vector2(boxWidth, boxHeight);\n\n        Vector2 uiPosition;\n        RectTransformUtility.ScreenPointToLocalPointInRectangle(\n            Parent.TouchMap.transform as RectTransform,\n            boxCenter,\n            null,\n            out uiPosition\n        );\n        rt.anchoredPosition = uiPosition;\n\n        //Pas perpotions toe\n        rectX = boxMinX / Screen.width;\n        rectY = boxMinY / Screen.height;\n        rectWidth = boxWidth / Screen.width;\n        rectHeight = boxHeight / Screen.height;\n        \n        //Mix de canvas en \"echte\" wereld\n        Vector3 screenCenter = new Vector3(boxCenter.x, boxCenter.y, collisionCubeDepth);\n        Vector3 worldCenter = Camera.main.ScreenToWorldPoint(screenCenter);\n        activeCollisionCube.transform.position = worldCenter;\n\n        //Scherm groote bs\n        Vector3 screenLeft  = new Vector3(boxMinX, boxCenter.y, collisionCubeDepth);\n        Vector3 screenRight = new Vector3(boxMaxX, boxCenter.y, collisionCubeDepth);\n\n        float worldWidth = Vector3.Distance(\n            Camera.main.ScreenToWorldPoint(screenLeft),\n            Camera.main.ScreenToWorldPoint(screenRight)\n        );\n\n        //Meer scherm groote bs\n        Vector3 screenBottom = new Vector3(boxCenter.x, boxMinY, collisionCubeDepth);\n        Vector3 screenTop    = new Vector3(boxCenter.x, boxMaxY, collisionCubeDepth);\n\n        float worldHeight = Vector3.Distance(\n            Camera.main.ScreenToWorldPoint(screenBottom),\n            Camera.main.ScreenToWorldPoint(screenTop)\n        );\n\n        //Placement (Daan, raak gras aan <3)\n        if (SceneManager.GetActiveScene().buildIndex != 2)\n        {\n            activeCollisionCube.transform.localScale = new Vector3(worldWidth, worldHeight, 100f);\n        }\n        else\n        {\n            activeCollisionCube.transform.localScale = new Vector3(100f, worldHeight, worldWidth);\n        }\n    }"
+        },
+        {
+          "subtitle": "Mixing 2D & 3D",
+          "description": "Een zone waar, als de speler of een projectile erin zit, hun worden geduwd naar de target position",
+          "image": "./Feature6.2.png",
+          "code": "Hiervoor kan ik eigenlijk best moeilijk code laten zien, want alles was gedaan in Unity, \ndus ik schrijft het wel gewoon op! \n\nOmdat het spel touchscreen controls gebruikte, \nmoest alles wat te maken had met de touchscreen in 2D zijn, \ndus ik moest eigenlijk de vogels in 2D neeretten... \n\nDit klonk veel simpeler dan dat het was, \nwant als ik alles in 2D neerzette leek alles zo plat en druk. \nDus om dit op te lossen heb ik de vogels in 2D gerenderd, en de achtergrond in 3D! \nSimpel toch? \n\nNou ik kwam erachter van niet, want het zag er nogsteeds heel plat uit op die manier... \nUiteindelijk is het gellukig opgelost door mij, \nik heb namelijk meerdere cameras neergezet die om en om 2D en 3D renderde! \nZo kon ik diepte toevoegen aan de 2d opjecten zonder ze in 3D te zetten! \n\nVeder heb ik nog een script gemaakt om de vogels op een willikeurige layer te zetten, \nen hun groote en snelheid aangepast om diepte te faken. \nNaar mijn idee was dit een geweldige fix!"
+        }
+      ],
+      "git": "https://github.com/Rijstewekkie/ShameCircle",
+      "itch": "https://teun-de-beer.itch.io/avian-attributes"
     },
     {
       "id": "goblins-gonerhouse",
       "title": "Goblin's Gonerhouse",
-      "tagline": "",
-      "description": "",
+      "tagline": "A Dungeon crawler, but YOU are the boss!",
+      "description": "Goblin's Gonerhouse is een spel wat ik begon met maken om mijn eigen interesses te cultiveren. \nIk wou een spel maken waar je een dungeon moest maken die avonturierst zouden binnen vallen om jouw loot te stelen. \nHet idee was om een tower defence te mixen met een combat systeem, dus eerst moeten de avonturiers langs je defences komen, en dan pas vechten ze met de eindbaas (jij dus). \nIk vond dit idee heel leuk, maar doordat ik veel andere dingen op mijn bord had ging productie best sloom, maar ik hoop binnenkort door te gaan!",
       "thumbnail": "./Thumbnail7.png",
-      "screenshots": [],
+      "screenshots": [
+        "./Run.png",
+        "./Feature7.1.png"
+      ],
       "tags": [
         "Unity 2D",
         "PassionProject",
         "WIP"
       ],
-      "projectRole": "",
-      "timeline": "",
-      "mechanics": [],
-      "git": ""
+      "projectRole": "Sole Developer",
+      "timeline": "N/A",
+      "mechanics": [
+        {
+          "subtitle": "Talking system",
+          "description": "Je kan buiten combat naar een NPC toelopen en met ze praten",
+          "image": "./Feature7.1.png",
+          "code": "if (TalkingScript.talkState != TalkState.Talking && TalkingScript.talkState != TalkState.Question && TalkingScript.talkState != TalkState.Reaction)\n        {\n            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))\n            {\n                transform.position += Vector3.left * (Speed +RunSpeed) * Time.deltaTime;\n                FlipImage = true;\n            }\n\n            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))\n            {\n                transform.position += Vector3.right * (Speed +RunSpeed) * Time.deltaTime;\n                FlipImage = false;\n            }\n\n            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))\n            {\n                transform.position += Vector3.up * (Speed +RunSpeed) * Time.deltaTime;\n            }\n\n            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))\n            {\n                transform.position += Vector3.down * (Speed +RunSpeed) * Time.deltaTime;\n            }\n\n            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) ||\n                Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) ||\n                Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))\n            {\n                isWalking = true;\n            }\n            else\n            {\n                isWalking = false;\n            }   \n        }\n        else\n        {\n            isWalking = false;\n        }\n\n        if (FlipImage)\n        {\n            transform.rotation = Quaternion.Euler(0, 180, 0);\n        }\n        else\n        {\n            transform.rotation = Quaternion.Euler(0, 0, 0);\n        }\n\n        if (isWalking && !Input.GetKey(KeyCode.LeftShift))\n        {\n            ActiveSprites[ActiveSprite] = WalkSprites[ActiveSprite];\n            WalkTimer -= Time.deltaTime * WalkSpeed;\n            \n            if (WalkTimer <= 0 && ActiveSprite < WalkSprites.Length - 1)\n            {\n                ActiveSprite++;\n                WalkTimer = 1f;\n            }\n            else if (WalkTimer <= 0 && ActiveSprite >= WalkSprites.Length - 1)\n            {\n                ActiveSprite = 0;\n                WalkTimer = 1f;\n            }\n        }\n        else if (isWalking && Input.GetKey(KeyCode.LeftShift))\n        {\n            ActiveSprites[ActiveSprite] = RunSprites[ActiveSprite];\n            WalkTimer -= Time.deltaTime * WalkSpeed;\n            \n            if (WalkTimer <= 0 && ActiveSprite < RunSprites.Length - 1)\n            {\n                ActiveSprite++;\n                WalkTimer = 1f;\n            }\n            else if (WalkTimer <= 0 && ActiveSprite >= RunSprites.Length - 1)\n            {\n                ActiveSprite = 0;\n                WalkTimer = 1f;\n            }\n        }\n        else\n        {\n            ActiveSprites[ActiveSprite] = basicSprite;\n            ActiveSprite = 0;\n            WalkTimer = 0f;\n        }\n    }"
+        }
+      ],
+      "git": "https://github.com/TPODanzig/Reverse-Dungeon-Crawler"
     },
     {
       "id": "nokeo-bot",
       "title": "Nokeo Bot",
-      "tagline": "",
-      "description": "",
+      "tagline": "A nice little discord bot made for fun",
+      "description": "Dit was een discord bot gemaakt voor de lol, ik heb veel features toegevoegd zoals custom commands en een muziek speler. \nDe bot zelf is geinsipeerd door mijn oude DnD karakter met de zelfde naam!",
       "thumbnail": "./Thumbnail8.png",
-      "screenshots": [],
+      "screenshots": [
+        "./Nokegoat.png",
+        "./NietAardig.png",
+        "./BotLogs.png"
+      ],
       "tags": [
         "Python",
         "Discord API",
         "PassionProject"
       ],
-      "projectRole": "",
-      "timeline": "",
-      "mechanics": [],
-      "git": ""
+      "projectRole": "Sole Developer",
+      "timeline": "N/A",
+      "mechanics": [
+        {
+          "subtitle": "Custom Commands",
+          "description": "Je kan je eigen commands zetten met N!Catchphrase",
+          "image": "./Feature8.1.png",
+          "code": "elif msg.startswith(\"n!catchphrase\"):\n        if message.author.id not in bot.cTarget:\n           bot.cTarget.append(message.author.id)\n           bot.cTargetName.append(f\"{message.author}\")\n           await message.channel.send(f\"What will be your catchphrase {message.author.mention}?\",delete_after=30)\n\n        else:\n           await message.channel.send(f\"What will be your new catchphrase {message.author.mention}?\",delete_after=30)\n           index = bot.cTarget.index(message.author.id)\n           bot.cPhrase[index] = None\n           bot.cResponse[index] = None\n        \n        bot.cState = 1\n        bot.cActiveUser = message.author.id\n        bot.cActiveChannel = message.channel\n        await message.delete()\n\n--------------------------------------------------------------------------------\n//(different but connected code segment here)\nasync def CatchphraseActive(message):\n    msg = message.content.lower()  # ignore case\n    ctx = await bot.get_context(message)\n\n    if bot.cState == 1 and message.author.id == bot.cActiveUser:\n        catchphrase = message.content.lower().strip()\n\n        index = bot.cTarget.index(message.author.id)\n        bot.cPhrase[index] = catchphrase\n\n        await message.channel.send(f\"Okay, and what should I say to that?\")\n        bot.cState = 2\n        return\n\n    if bot.cState == 2 and message.author.id == bot.cActiveUser:\n        response = message.content.strip()\n\n        index = bot.cTarget.index(message.author.id)\n        bot.cResponse[index] = response\n\n        await message.channel.send(\n            f\"Got it! When you say `{bot.cPhrase[index]}`, I'll reply with `{response}`.\"\n        )\n        pickleSave(bot)\n\n        # Reset for the next user\n        bot.cActiveUser = None\n        bot.cState = 0\n        return\n\n    if bot.cState in (1, 2) and message.author.id != bot.cActiveUser:\n        return\n\n    await bot.process_commands(message)"
+        },
+        {
+          "subtitle": "Music player",
+          "description": "Je kan muziek spelen als je in een call zit met N!Play",
+          "image": "./Feature8.2.png",
+          "code": "if msg_lower.startswith(\"n!play\") or msg_lower.startswith(\"n!insert\"):\n        if message.author.voice is None:\n            await message.channel.send(\"I can't find you anywhere! please join a call :<\")\n            return\n\n        ch = message.author.voice.channel\n\n        if voice_client is None or not voice_client.is_connected():\n            voice_client = await ch.connect()\n        elif voice_client.channel != ch:\n            await voice_client.move_to(ch)\n\n        # Extract query\n        if msg_lower.startswith(\"n!play\"):\n            query = msg[5:].strip()\n            insert_next = False\n        else:  # n!insert\n            query = msg[7:].strip()\n            insert_next = True\n\n        if not query:\n            await message.channel.send(\"Play what now?\")\n            return\n\n        # Detect Spotify track\n        spotify_match = re.search(spotify_track_regex, query)\n        if spotify_match:\n            track_url = spotify_match.group(0)\n            try:\n                track_info = sp.track(track_url)\n                query = f\"{track_info['name']} {track_info['artists'][0]['name']}\"\n            except Exception as e:\n                await message.channel.send(f\"Couldn't find that Spotify track: {e}\")\n                return\n\n        # Ensure queue exists\n        if message.guild.id not in MQue:\n            MQue[message.guild.id] = []\n\n        # Add to queue or play immediately\n        if voice_client.is_playing() or voice_client.is_paused():\n            if insert_next:\n                MQue[message.guild.id].insert(0, query)\n                await message.channel.send(f\"Inserted next in queue: {query} | Queue length: {len(MQue[message.guild.id])}\")\n            else:\n                MQue[message.guild.id].append(query)\n                await message.channel.send(f\"Added to queue: {query} | Queue length: {len(MQue[message.guild.id])}\")\n        else:\n            # Play immediately\n            await play_youtube_audio(\n                voice_client,\n                query,\n                message.guild.id,\n                after=lambda e: asyncio.run_coroutine_threadsafe(play_next_in_queue(message.guild.id, message.channel), bot.loop)\n            )\n            await message.channel.send(f\"Now playing: {query}\")"
+        }
+      ]
     }
   ]
 }
