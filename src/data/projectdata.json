@@ -5,10 +5,10 @@
       "title": "Tamagotchi",
       "tagline": "Een virtual pet game gemaakt zonder een game engine",
       "description": "Deze opdracht was gemaakt als afsluiter van onze programmerings introductie module in de eerste klas, van de acht week lange module gingen de laatste twee naar dit project. \nIk heb tijdens dit project erg gefocused op veel features toevoegen en hoewel deze opdracht misschien niet de beste is, is het wel een van mijn eerste, en ik ben nog steeds zeer trots, niet alleen op hoe veel ik in zo weinig tijd heb kunnen toevoegen, maar ook op hoe snel ik dit allemaal heb kunnen leren.",
-      "thumbnail": "./public/Thumbnail1.png", 
+      "thumbnail": "./Thumbnail1.png",
       "screenshots": [
-        "./public/Feature1.1.png",
-        "./public/Feature1.2.png"
+        "./Feature1.1.png",
+        "./Feature1.2.png"
       ],
       "tags": [
         "P5.js",
@@ -21,17 +21,16 @@
         {
           "subtitle": "Statistic Bars",
           "description": "De speler heeft 4 bars rechts bovenin hun scherm, deze laten zien wat de pet nodig heeft, je kan op allemaal unieke manieren deze naar boven halen, zoals door de muziek aan te zetten of te gaan slapen",
-          "image": "./public/Statusbars.png",
+          "image": "./Statusbars.png",
           "code": "function status(){ \n  let jStartAngle = 0;\n  let jStopAngle = 360 - j;\n  if (jStopAngle > 0) {\n    arc(1500, 50, 50, 50, jStartAngle, jStopAngle);\n    if (life == true && AFK === false) {\n      j += 0.02;\n    }\n  }\n  if (j < 0) {\n    j = 0;\n  }\n\n  if (hStopAngle < 1 || cStopAngle < 1 || jStopAngle < 1 || eStopAngle < 1) {\n    life = false;\n  }"
         },
         {
           "subtitle": "Tutorial Screen",
           "description": "Omdat ik zo veel features had, heb ik een scherm toegevoegd waarop je kan zien hoe je alles moet doen, dit werd aangegeven met een notitie blokje links bovenin je scerm met een H erop, als je op H klikte kwam er een doorzichtig scherm met alle controls",
-          "image": "./public/Tutorial.png",
+          "image": "./Tutorial.png",
           "code": "fill(255);\n  if (tutorial === 1 && !talking === true) {\n    fill(255, 255, 255, 100);\n    rect(50, 50, 1479, 757);\n    textSize(100)\n    fill(255, 255, 255, 200);\n    text(\"F to unlock movement\",60,160)\n    text(\"P to play/pause music\",60,260)\n    text(\"O to switch track\",60,360)\n    text(\"S to go to sleep\",60,460)\n    text(\"W to take a shower\",60,560)\n    text(\"Enter to save\",60,760)\n    text(\"A to go AFK\",60,660)\n  }\n  textSize(50)"
         }
-      ]
-      ,
+      ],
       "git": "https://github.com/GLU-CSD/basis-programmeren-TPODanzig/tree/main/Opdracht%207"
     },
     {
@@ -39,11 +38,11 @@
       "title": "VR Supermarkt",
       "tagline": "Een vr simulatie van boodschappen doen",
       "description": "Dit was mijn eerste echte vr game, hoewel het niet echt als een “game” geclassificeerd kan worden… \nHier had ik mijn eerste echte ervaringen met veel unity features, en heb ik veel nieuwe dingen getest, zoals collision, triggers, snap points en arrays vullen.",
-      "thumbnail": "./public/Thumbnail2.png",
+      "thumbnail": "./Thumbnail2.png",
       "screenshots": [
-        "./public/Radio.png",
-        "./public/Dressers.png",
-        "./public/Thumbnail2.png"
+        "./Radio.png",
+        "./Dressers.png",
+        "./Thumbnail2.png"
       ],
       "tags": [
         "VR",
@@ -56,13 +55,13 @@
         {
           "subtitle": "Kassa",
           "description": "De speler kan hun producten op de band leggen, waardoor ze de scanner in en uit worden geduwd.",
-          "image": "./public/Feature2.1.png",
+          "image": "./Feature2.1.png",
           "code": "private void OnCollisionStay(Collision collision)\n{\n    Rigidbody otherRigidbody = collision.gameObject.GetComponent<Rigidbody>(); //get other object\n\n    if (otherRigidbody != null) //check for rigidbodies\n    {\n        otherRigidbody.linearVelocity = MovementDirection.normalized * movementSpeed; //add direction and speed\n    }\n}"
         },
         {
           "subtitle": "Sliding Doors",
           "description": "De speler kan Naar de deur toe lopen om deze te openen",
-          "image": "./public/Feature2.2.png",
+          "image": "./Feature2.2.png",
           "code": "void Update()\n{\n  Vector3 currentPosition = transform.position;\n\n    if (OpenDoor == true)\n    {\n        if (OpenAmount < 1.5)\n        {\n            OpenAmount = (OpenAmount + Time.deltaTime);\n        }\n    }\n    else\n    {\n        if (OpenAmount > 0)\n        {\n          OpenAmount = (OpenAmount - Time.deltaTime);\n        }\n    }\n\n    transform.position = new Vector3(transform.position.x, transform.position.y, StartingPosition + OpenAmount);\n\n    OpenAmount = Mathf.Clamp(OpenAmount, 0f, 1.5f);\n}\n}"
         }
       ],
@@ -73,11 +72,11 @@
       "title": "Zombie Shooter",
       "tagline": "Een revamped supermarkt waar je Zombies schiet",
       "description": "In dit project moesten we onze supermarkten omtoveren in een shooter met zombies. \nDit was onze eerste ervaring met combat maken, en een zekere voorbereiding voor mijn volgende opdracht (Sub-Atomical). \n Ik heb hier voor hety eerst gewerkt met dingens zoals enemy AI, targeting en spawning.",
-      "thumbnail": "./public/Thumbnail3.png",
+      "thumbnail": "./Thumbnail3.png",
       "screenshots": [
-        "./public/Dead.png",
-        "./public/Arsenal.png",
-        "./public/Thumbnail3.png"
+        "./Dead.png",
+        "./Arsenal.png",
+        "./Thumbnail3.png"
       ],
       "tags": [
         "VR",
@@ -90,13 +89,13 @@
         {
           "subtitle": "Melee Attack",
           "description": "Een attack script voor alle sword-like weapons, ze hebben allemaal hun eigen stats, en de beste is de schep",
-          "image": "./public/Feature3.1.png",
+          "image": "./Feature3.1.png",
           "code": "private void OnCollisionEnter(Collision other)\n{\n   if (Cooldown <= 0 && !Broken)\n   {\n       Enemy EnemyCollider = other.gameObject.GetComponent<Enemy>();\n      \n       if (EnemyCollider != null)\n       {\n         EnemyCollider.ZHealth = EnemyCollider.ZHealth - MeleeDamage;\n         EnemyCollider.ZDamage();\n         if (Breakable)\n         {\n             Durability = Durability - 1;\n         }\n         Cooldown = AttackSpeed;\n         if (Durability == 0)\n         {\n             Break();\n         }\n       }\n   }\n}"
         },
         {
           "subtitle": "Bullet System",
           "description": "Hit-detection via een actuele projectile, dit gebruikte ik vooral omdat ik het cooler vond zo te schieten.",
-          "image": "./public/Feature3.2.png",
+          "image": "./Feature3.2.png",
           "code": "private void OnCollisionEnter(Collision collision)\n{\n   if (collision.gameObject.CompareTag(\"Enemy\"))\n   {\n       EnemyScript = collision.gameObject.GetComponent<Enemy>();\n       EnemyScript.ZHealth = EnemyScript.ZHealth - 1;\n       EnemyScript.ZDamage();\n   }\n\n\n   if (!collision.gameObject.CompareTag(\"Weapon\"))\n   {\n       Destroy(gameObject);\n   }\n  \n}"
         }
       ],
@@ -107,12 +106,12 @@
       "title": "Sub-Atomical",
       "tagline": "Mijn eerste published game, gemaakt in een team met artists",
       "description": "Dit was mijn laatste project van het eerste leerjaar, ik zat in een team met 3 artists en 1 andere developer. \nDe andere dev en ik hebben goed samen gewerkt en het werk goed verdeeld, en wij waren aan het einde zo blij met ons product dat we het spel ook oprecht online hebben gezet. \nIn het spel moet je door meerdere kamers lopen en vijanden verslaan on de boss deur te openen, als je hem verslaat win je.",
-      "thumbnail": "./public/Thumbnail4.png",
+      "thumbnail": "./Thumbnail4.png",
       "youtube": "https://www.youtube.com/embed/45M54aUkpek?si=_vZsopROX3yChDWW",
       "screenshots": [
-        "./public/Boss.png",
-        "./public/Drone.png",
-        "./public/Supply.png"
+        "./Boss.png",
+        "./Drone.png",
+        "./Supply.png"
       ],
       "tags": [
         "Unity VR",
@@ -125,14 +124,14 @@
         {
           "subtitle": "Enemy Drops",
           "description": "Een systeem om enemies items te laten vasthouden en laten vallen als ze dood gaan",
-          "image": "./public/Feature4.1.png",
+          "image": "./Feature4.1.png",
           "code": "void Dying()\n{\n    if (HoldingObject == true)\n    {\n        DeathSound.Play();\n        Instantiate(heldObject, DropPos, gameObject.transform.rotation);\n        HoldingObject = false;\n    }\n    Debug.Log(\"Enemy is ded\");\n    if (EnemyDeathTimer > 0)\n    {\n        EnemyDeathTimer -= Time.deltaTime;\n    }\n    else\n    {\n        if (DeathEffect != null)\n        {\n            Instantiate(DeathEffect, DropPos, transform.rotation);\n        }\n        Destroy(gameObject);\n    }\n}"
         },
         {
           "subtitle": "Player Death",
           "description": "Een dynamisch uitziende dood voor de speler",
-          "image": "./public/Feature4.2.png",
-          "code": "if (Health <= 0 && !Dead)\n        {\n            Dead = true;\n            Fadeout = true;\n        }\n\n        if (Fadeout) //laat het fadeout effect spelen\n        {\n            Color FadeColor = FadeOutEffect.color;\n            FadeColor.a = Mathf.Clamp01(FadeCTimer); //Color.a is transparancy\n            FadeOutEffect.color = FadeColor;\n            FadeCTimer += Time.deltaTime;\n        }\n\n        if (SceneManager.GetActiveScene().buildIndex == 1 && Dead == true && FadeCTimer >= 1)\n        {\n            SceneManager.LoadScene(\"Death\");\n        }"
+          "image": "./Feature4.2.png",
+          "code": "if (Health <= 0 && !Dead)\n        {\n            Dead = true;\n            Fadeout = true;\n        }\n\n        if (Fadeout)\n        {\n            Color FadeColor = FadeOutEffect.color;\n            FadeColor.a = Mathf.Clamp01(FadeCTimer);\n            FadeOutEffect.color = FadeColor;\n            FadeCTimer += Time.deltaTime;\n        }\n\n        if (SceneManager.GetActiveScene().buildIndex == 1 && Dead == true && FadeCTimer >= 1)\n        {\n            SceneManager.LoadScene(\"Death\");\n        }"
         }
       ],
       "git": "https://github.com/GLU-CSD/vr-shooter-team-23-jam",
@@ -143,12 +142,12 @@
       "title": "aubergine Acrobatics",
       "tagline": "Een simpele platformer",
       "description": "Hoewel platformers best simpel zijn, was dit de eerste die ik heb gemaakt in 3d. \nJe speelt als Aubereugine op een queste om je aubergine terug te winnen van de wasberen. \nDit project werd gebruikt om ons te laten leren over andere build types zoals android of WebGL",
-      "thumbnail": "./public/Thumbnail5.png",
+      "thumbnail": "./Thumbnail5.png",
       "screenshots": [
-        "./public/Feature5.1.png",
-        "./public/Feature5.2.png",
-        "./public/Text.png",
-        "./public/Logo.png"
+        "./Feature5.1.png",
+        "./Feature5.2.png",
+        "./Text.png",
+        "./Logo.png"
       ],
       "tags": [
         "Unity",
@@ -161,13 +160,13 @@
         {
           "subtitle": "Wind Zones",
           "description": "Een zone waar, als de speler of een projectile erin zit, hun worden geduwd naar de target position",
-          "image": "./public/Feature5.1.png",
+          "image": "./Feature5.1.png",
           "code": "void OnTriggerStay(Collider other)\n{\n        if (other.GetComponent<PlayerController>() != null)\n        {\n            player.transform.position = new Vector3(player.transform.position.x + Direction.x * (Speed/100), player.transform.position.y + Direction.y * (Speed/100), player.transform.position.z + Direction.z * (Speed/100));\n        }\n\n        if (other.GetComponent<AuBullet>() != null)\n        {\n            bullet = other.GetComponent<AuBullet>();\n            bullet.BulletDirection = Direction;\n            bullet.BulletSpeed = Speed;\n        }\n    }"
         },
         {
           "subtitle": "Levers",
           "description": "Interactable levers die verschillende acties verrichten gebaseerd op hun specific data",
-          "image": "./public/Feature5.2.png",
+          "image": "./Feature5.2.png",
           "code": "void Move()\n    {\n        if (MoveTimer > 0)\n        {\n            Pos.x += Time.deltaTime * ActualRange.x;     \n            Pos.y += Time.deltaTime * ActualRange.y;     \n            Pos.z += Time.deltaTime * ActualRange.z;     \n            \n            MoveTimer -= Time.deltaTime;\n        }\n        Target.transform.position = new Vector3(TargetStartPos.x + Pos.x, TargetStartPos.y + Pos.y, TargetStartPos.z + Pos.z);\n    }\n\n    void summon()\n    {\n        for (int i = 0; i < SummonAmount; i++)\n        {\n            Instantiate(Target, TargetPos, Quaternion.identity);\n        }\n\n        LeverType = TargetType.empty;\n    }"
         }
       ],
@@ -178,7 +177,7 @@
       "title": "Avian Attributes",
       "tagline": "Een vogel spot spel voor musea",
       "description": "",
-      "thumbnail": "./public/Thumbnail6.png",
+      "thumbnail": "./Thumbnail6.png",
       "screenshots": [],
       "tags": [
         "Unity",
@@ -196,7 +195,7 @@
       "title": "Goblin's Gonerhouse",
       "tagline": "",
       "description": "",
-      "thumbnail": "./public/Thumbnail7.png",
+      "thumbnail": "./Thumbnail7.png",
       "screenshots": [],
       "tags": [
         "Unity 2D",
@@ -213,7 +212,7 @@
       "title": "Nokeo Bot",
       "tagline": "",
       "description": "",
-      "thumbnail": "./public/Thumbnail8.png",
+      "thumbnail": "./Thumbnail8.png",
       "screenshots": [],
       "tags": [
         "Python",
