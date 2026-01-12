@@ -3,7 +3,7 @@ export const siteConfig = {
   role: "XR Developer",
   tagline: "Hallo, ik ben Robin, wat vind je van mijn projecten?",
   aboutImage: "https://static0.polygonimages.com/wordpress/wp-content/uploads/2024/11/Hei-1.jpg?w=1600&h=1200&fit=crop",
-  cv: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+  cv: "./CV.png",
 
   socials: {
     email: "r.m.vanveluw@gmail.com",
